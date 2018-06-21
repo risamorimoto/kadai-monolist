@@ -1,6 +1,11 @@
 <?php
+namespace App\Http\Controllers;
 
-  use \App\Item;
+use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
+
+use \App\Item;
 
   class ItemsController extends Controller
   {
