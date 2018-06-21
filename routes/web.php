@@ -9,9 +9,9 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-Route::get('/', function () {
-    return view('welcome');
-});*/
+*/
+
+
 
 Route::get('/', 'WelcomeController@index');
 
@@ -28,5 +28,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('items', 'ItemsController', ['only' => ['create', 'show']]);
     Route::post('want', 'ItemUserController@want')->name('item_user.want');
     Route::delete('want', 'ItemUserController@dont_want')->name('item_user.dont_want');
+    
+    //ここかえたよ0621/03:12
+    Route::post('have', 'ItemUserController@have')->name('item_user.have');
+    Route::delete('have', 'ItemUserController@dont_have')->name('item_user.dont_have');
     Route::resource('users', 'UsersController', ['only' => ['show']]);
 });
