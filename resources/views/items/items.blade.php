@@ -20,13 +20,16 @@
                                 @endif
                             </div>
                         </div>
-                        @if (isset($item->count))
+                            @if (isset($item->count))
                             <div class="panel-footer">
-                                <p class="text-center">{{ $key+1 }}位: {{ $item->count}} Wants</p>
-                                <p class="text-center">{{ $key+1 }}位: {{ $item->count}} Has</p>
+                                @if($type == 'want')
+                                <p class="text-center">{{ $key+1 }}位: {{ App\Item::find($item->id)->count_want()}}  Wants</p>
+                                @elseif($type == 'have')
+                                <p class="text-center">{{ $key+1 }}位: {{ App\Item::find($item->id)->count_have()}} Has</p>
+                                @endif
                             </div>
                         @endif
-                    </div>
+                        </div>
                 </div>
             </div>
         @endforeach
